@@ -15,4 +15,4 @@ with open(file) as feed:
         numWords += len(words)
         numBytes += len(line)
 
-print str(numLines) + "   " + str(numWords) + "   " + str(numBytes)
+print str(numLines) + "   " + str(numWords) + "   " + str(numBytes) + " " + file
