@@ -15,4 +15,19 @@ with open(file) as feed:
         numWords += len(words)
         numBytes += len(line)
 
-print str(numLines) + "   " + str(numWords) + "   " + str(numBytes) + " " + file
+numLines2 = numLines
+numWords2 = numWords
+numBytes2 = numBytes
+#subtract from numWords and numBytes by the proper amount, assuming numLines remains the same
+with open(file) as f:
+    for line in f:
+        words = line.split()
+        for word in words:
+            word.lower()
+            if word == "i" or word == "we" or word == "you" or word == "they" or word == "a" or word == "and" or word == "the" or word == "that" or word == "of" or word == "for" or word == "with":
+                numWords2 -= 1
+                numBytes2 -= len(word)
+
+
+print "all: " + str(numLines) + "   " + str(numWords) + "   " + str(numBytes) + " " + file
+print "proper: " + str(numLines2) + "   " + str(numWords2) + "   " + str(numBytes2)
